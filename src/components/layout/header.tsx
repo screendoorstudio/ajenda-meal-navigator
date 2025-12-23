@@ -32,9 +32,9 @@ export default function Header() {
 
             {/* Title & Subhead */}
             <div className="hidden sm:flex flex-col">
-              <span className="text-[10px] font-medium tracking-widest text-[var(--ajenda-red)] uppercase">
+              <a href="https://www.joinajenda.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] font-medium tracking-widest text-[var(--ajenda-red)] uppercase hover:underline">
                 The Wellness Experiment
-              </span>
+              </a>
               <span className="heading-serif text-xl text-[var(--scandi-charcoal)]">
                 Ajenda Ajent
               </span>

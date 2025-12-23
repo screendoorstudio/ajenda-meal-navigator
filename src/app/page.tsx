@@ -16,9 +16,9 @@ export default function Home() {
         />
 
         {/* Subhead */}
-        <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-[var(--ajenda-red)] uppercase mb-4">
+        <a href="https://www.joinajenda.com/" target="_blank" rel="noopener noreferrer" className="inline-block text-xs sm:text-sm font-medium tracking-[0.2em] text-[var(--ajenda-red)] uppercase mb-4 hover:underline">
           The Wellness Experiment
-        </p>
+        </a>
 
         {/* Main Title - Elegant Serif */}
         <h1 className="heading-serif text-4xl sm:text-5xl md:text-6xl text-[var(--scandi-charcoal)] mb-6">
@@ -26,7 +26,7 @@ export default function Home() {
         </h1>
 
         <p className="text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-10">
-          Search and browse Dr. Jen Ashton&apos;s meal plans
+          Search and browse <a href="https://www.joinajenda.com/" target="_blank" rel="noopener noreferrer" className="text-[var(--ajenda-red)] hover:underline">Dr. Jen Ashton&apos;s</a> meal plans
           by ingredients, nutritional values, and more.
         </p>
         <div className="flex flex-wrap justify-center gap-4">

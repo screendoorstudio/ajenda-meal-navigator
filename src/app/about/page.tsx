@@ -11,8 +11,8 @@ export default function AboutPage() {
         <div className="section-header-bar">Disclaimer</div>
         <div className="p-6 space-y-4">
           <p className="text-[var(--scandi-charcoal)] leading-relaxed">
-            This website was created as a helpful tool by a fan of Dr. Jen Ashton&apos;s
-            Ajenda Wellness Experiment.
+            This website was created as a helpful tool by a fan of <a href="https://www.joinajenda.com/" target="_blank" rel="noopener noreferrer" className="text-[var(--ajenda-red)] hover:underline">Dr. Jen Ashton&apos;s
+            Ajenda Wellness Experiment</a>.
           </p>
           <p className="text-[var(--scandi-charcoal)] leading-relaxed font-medium">
             This site is in no way affiliated with Dr. Jen Ashton or Ajenda.

@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Image
-              src="/ajenda-ajent-logo.png"
+              src="/ajenda-ajent-logo-white.png"
               alt="Ajenda Ajent"
               width={40}
               height={40}
@@ -46,8 +46,8 @@ export default function Footer() {
         {/* Disclaimer */}
         <div className="mb-8 text-sm text-white/60 max-w-3xl">
           <p className="mb-2">
-            This website was created as a helpful tool by a fan of Dr. Jen Ashton&apos;s
-            Ajenda Wellness Experiment. This site is in no way affiliated with Dr. Jen
+            This website was created as a helpful tool by a fan of <a href="https://www.joinajenda.com/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white underline">Dr. Jen Ashton&apos;s
+            Ajenda Wellness Experiment</a>. This site is in no way affiliated with Dr. Jen
             Ashton or Ajenda.
           </p>
           <p>
