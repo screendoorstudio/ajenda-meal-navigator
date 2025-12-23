@@ -3,24 +3,70 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --ajenda-red: #E31837;
+  --ajenda-red-dark: #C01530;
+  --ajenda-gray: #6B7280;
+  --ajenda-light-gray: #F3F4F6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-ajenda-red: var(--ajenda-red);
+  --color-ajenda-red-dark: var(--ajenda-red-dark);
+  --color-ajenda-gray: var(--ajenda-gray);
+  --color-ajenda-light-gray: var(--ajenda-light-gray);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom utility classes */
+.btn-primary {
+  background-color: var(--ajenda-red);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--ajenda-red-dark);
+}
+
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  border: 1px solid #E5E7EB;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-calories {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.badge-protein {
+  background-color: #DBEAFE;
+  color: #1E40AF;
+}
+
+.badge-fiber {
+  background-color: #D1FAE5;
+  color: #065F46;
 }

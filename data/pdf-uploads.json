@@ -1,0 +1,254 @@
+[
+  {
+    "phase": "m10",
+    "week": 1,
+    "path": "m10/m10-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m10/m10-week-1.pdf"
+  },
+  {
+    "phase": "m10",
+    "week": 2,
+    "path": "m10/m10-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m10/m10-week-2.pdf"
+  },
+  {
+    "phase": "m7",
+    "week": 1,
+    "path": "m7/m7-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m7/m7-week-1.pdf"
+  },
+  {
+    "phase": "m7",
+    "week": 2,
+    "path": "m7/m7-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m7/m7-week-2.pdf"
+  },
+  {
+    "phase": "m7",
+    "week": 3,
+    "path": "m7/m7-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m7/m7-week-3.pdf"
+  },
+  {
+    "phase": "m7",
+    "week": 4,
+    "path": "m7/m7-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m7/m7-week-4.pdf"
+  },
+  {
+    "phase": "m8",
+    "week": 1,
+    "path": "m8/m8-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m8/m8-week-1.pdf"
+  },
+  {
+    "phase": "m8",
+    "week": 2,
+    "path": "m8/m8-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m8/m8-week-2.pdf"
+  },
+  {
+    "phase": "m8",
+    "week": 3,
+    "path": "m8/m8-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m8/m8-week-3.pdf"
+  },
+  {
+    "phase": "m8",
+    "week": 4,
+    "path": "m8/m8-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m8/m8-week-4.pdf"
+  },
+  {
+    "phase": "m9",
+    "week": 1,
+    "path": "m9/m9-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m9/m9-week-1.pdf"
+  },
+  {
+    "phase": "m9",
+    "week": 2,
+    "path": "m9/m9-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m9/m9-week-2.pdf"
+  },
+  {
+    "phase": "m9",
+    "week": 3,
+    "path": "m9/m9-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m9/m9-week-3.pdf"
+  },
+  {
+    "phase": "m9",
+    "week": 4,
+    "path": "m9/m9-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m9/m9-week-4.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 1,
+    "path": "phase-1/phase-1-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-1.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 2,
+    "path": "phase-1/phase-1-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-2.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 3,
+    "path": "phase-1/phase-1-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-3.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 4,
+    "path": "phase-1/phase-1-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-4.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 5,
+    "path": "phase-1/phase-1-week-5.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-5.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 6,
+    "path": "phase-1/phase-1-week-6.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-6.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 7,
+    "path": "phase-1/phase-1-week-7.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-7.pdf"
+  },
+  {
+    "phase": "phase-1",
+    "week": 8,
+    "path": "phase-1/phase-1-week-8.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-1/phase-1-week-8.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 2,
+    "path": "phase-2/phase-2-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-2.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 1,
+    "path": "phase-2/phase-2-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-1.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 3,
+    "path": "phase-2/phase-2-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-3.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 4,
+    "path": "phase-2/phase-2-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-4.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 5,
+    "path": "phase-2/phase-2-week-5.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-5.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 6,
+    "path": "phase-2/phase-2-week-6.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-6.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 7,
+    "path": "phase-2/phase-2-week-7.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-7.pdf"
+  },
+  {
+    "phase": "phase-2",
+    "week": 8,
+    "path": "phase-2/phase-2-week-8.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-2/phase-2-week-8.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 0,
+    "path": "phase-3/phase-3-week-0.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-0.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 1,
+    "path": "phase-3/phase-3-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-1.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 3,
+    "path": "phase-3/phase-3-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-3.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 4,
+    "path": "phase-3/phase-3-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-4.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 5,
+    "path": "phase-3/phase-3-week-5.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-5.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 6,
+    "path": "phase-3/phase-3-week-6.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-6.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 7,
+    "path": "phase-3/phase-3-week-7.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-7.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 8,
+    "path": "phase-3/phase-3-week-8.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-8.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 2,
+    "path": "phase-3/phase-3-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-2.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 2,
+    "path": "phase-3/phase-3-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-2.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 4,
+    "path": "phase-3/phase-3-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-4.pdf"
+  },
+  {
+    "phase": "phase-3",
+    "week": 0,
+    "path": "phase-3/phase-3-week-0.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/phase-3/phase-3-week-0.pdf"
+  }
+]
