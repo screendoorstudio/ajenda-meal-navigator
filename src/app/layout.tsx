@@ -22,8 +22,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ajenda Meal Navigator",
-  description: "Search and browse Dr. Jen Ashton's 8-Week Wellness Experiment meal plans by ingredients, nutritional values, and more.",
+  title: "Ajenda Ajent",
+  description: "Search and browse Dr. Jen Ashton's Wellness Experiment meal plans by ingredients, nutritional values, and more.",
 };
 
 export default function RootLayout({

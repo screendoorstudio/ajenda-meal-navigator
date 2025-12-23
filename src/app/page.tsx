@@ -1,16 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
       <section className="text-center py-12 px-4">
-        {/* Circular Ajenda Logo */}
-        <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full border-[3px] border-[var(--ajenda-red)] flex items-center justify-center bg-white">
-          <span className="font-serif text-sm sm:text-base font-bold tracking-wide text-[var(--ajenda-red)]">
-            AJENDA
-          </span>
-        </div>
+        {/* Ajenda Ajent Logo */}
+        <Image
+          src="/ajenda-ajent-logo.png"
+          alt="Ajenda Ajent"
+          width={96}
+          height={96}
+          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6"
+        />
 
         {/* Subhead */}
         <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-[var(--ajenda-red)] uppercase mb-4">
@@ -19,7 +22,7 @@ export default function Home() {
 
         {/* Main Title - Elegant Serif */}
         <h1 className="heading-serif text-4xl sm:text-5xl md:text-6xl text-[var(--scandi-charcoal)] mb-6">
-          Meal Navigator
+          Ajenda Ajent
         </h1>
 
         <p className="text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-10">

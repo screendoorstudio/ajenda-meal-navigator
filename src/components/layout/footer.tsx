@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -18,12 +19,14 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-8 pb-8 border-b border-white/20">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border-2 border-[var(--ajenda-red)] flex items-center justify-center bg-white">
-              <span className="font-serif text-[8px] font-bold tracking-wide text-[var(--ajenda-red)]">
-                AJENDA
-              </span>
-            </div>
-            <span className="font-serif italic text-lg">Meal Navigator</span>
+            <Image
+              src="/ajenda-ajent-logo.png"
+              alt="Ajenda Ajent"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+            <span className="font-serif italic text-lg">Ajenda Ajent</span>
           </div>
 
           {/* Navigation */}

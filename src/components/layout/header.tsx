@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navigation = [
@@ -20,12 +21,14 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-4 group">
-            {/* Circular Ajenda Logo */}
-            <div className="ajenda-logo w-12 h-12 sm:w-14 sm:h-14 rounded-full border-[2.5px] border-[var(--ajenda-red)] flex items-center justify-center bg-white group-hover:bg-[var(--ajenda-red-light)] transition-colors">
-              <span className="font-serif text-[10px] sm:text-xs font-bold tracking-wide text-[var(--ajenda-red)]">
-                AJENDA
-              </span>
-            </div>
+            {/* Ajenda Ajent Logo */}
+            <Image
+              src="/ajenda-ajent-logo.png"
+              alt="Ajenda Ajent"
+              width={56}
+              height={56}
+              className="w-12 h-12 sm:w-14 sm:h-14 group-hover:scale-105 transition-transform"
+            />
 
             {/* Title & Subhead */}
             <div className="hidden sm:flex flex-col">
@@ -33,7 +36,7 @@ export default function Header() {
                 The Wellness Experiment
               </span>
               <span className="heading-serif text-xl text-[var(--scandi-charcoal)]">
-                Meal Navigator
+                Ajenda Ajent
               </span>
             </div>
           </Link>
