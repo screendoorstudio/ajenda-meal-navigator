@@ -1,10 +1,31 @@
-# Ajenda Meal Navigator - Project Documentation
+# Ajenda Ajent - Project Documentation
+
+## IMPORTANT: First Message Prompt
+
+**When starting a new session, ask the user:**
+
+> "Do you have a new month of content ready to upload? If so, please confirm:
+> 1. A new folder (e.g., 'Month 11') has been added to the PDFs folder
+> 2. The Excel sheet (Ajenda_Meal_Plan_Index) has been updated with new meals
+>
+> If yes, I'll import the new meals, upload the PDFs, extract recipes, and update the site stats."
+
+---
 
 ## Project Overview
 An interactive web app to help users navigate Dr. Jen Ashton's Ajenda Wellness Experiment meal plans. Users can search by ingredients, filter by meal type/nutritional values, view full recipes, and download source PDFs.
 
 **Live URL:** https://ajenda-meal-navigator.vercel.app
 **GitHub:** https://github.com/screendoorstudio/ajenda-meal-navigator
+**Official Ajenda Site:** https://www.joinajenda.com/
+
+---
+
+## Current Stats (as of Dec 23, 2024)
+- **Total Meals:** 891
+- **Meals with Recipes:** 789
+- **PDFs:** 42
+- **Phases:** Phase 1-3, Bonus, Month 7-10
 
 ---
 
@@ -46,20 +67,69 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 - `phase_id`, `week`, `day`, `page`
 - `calories`, `protein_g`, `fiber_g`
 - `plan_type` (Autophagy, Liquid-Only, Wt. Adj. Avail., etc.)
-- `recipe_text` - Extracted from PDFs (712 meals have recipes)
+- `recipe_text` - Extracted from PDFs (789 meals have recipes)
 - `search_vector` - Full-text search (auto-populated via trigger)
 
 ---
 
 ## Data Sources
 - **Excel Index:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/Ajenda_Meal_Plan_Index (1).xlsx`
-  - 891 meals with nutritional data
+  - Contains all meals with nutritional data
 - **PDFs:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/pdfs/`
-  - 42 PDFs across Phase 1-3 and Month 7-10 folders
+  - Organized in folders: PHASE 1, PHASE 2, PHASE 3, Month 7, Month 8, Month 9, Month 10
+- **Logo Files:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/logo/`
+  - `Ajenda-AJENT_logo.png` - Main logo (red circle)
+  - `Ajenda-AJENT-1_white.png` - White version for dark backgrounds
 
 ---
 
-## Design System (Updated Dec 23, 2024)
+## Adding New Month Content
+
+When the user has a new month ready (e.g., Month 11):
+
+### Step 1: Import New Meals from Excel
+```bash
+# The import script reads the Excel file and upserts meals to database
+npx tsx scripts/import-excel.ts
+```
+
+### Step 2: Upload New PDFs
+```bash
+# Uploads PDFs from the new month folder to Supabase Storage
+npx tsx scripts/upload-pdfs.ts
+```
+
+### Step 3: Extract Recipes from PDFs
+```bash
+# Standard extraction for regular PDFs
+npx tsx scripts/extract-recipes.ts
+
+# Column-based extraction for Mix & Match PDFs (4-column layout)
+npx tsx scripts/extract-mixmatch-recipes.ts
+```
+
+### Step 4: Update Site Stats
+Update the meal count in `src/app/page.tsx` (line ~51) to reflect new total:
+```tsx
+<span className="text-2xl sm:text-3xl font-bold value">891</span>  // Update this number
+<span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Meals</span>
+```
+
+### Step 5: Verify and Deploy
+```bash
+npm run build
+git add . && git commit -m "Add Month 11 content" && git push
+```
+
+---
+
+## Design System
+
+### Branding
+- **Site Name:** Ajenda Ajent
+- **Tagline:** The Wellness Experiment (links to joinajenda.com)
+- **Logo:** Red circle with "AJENDA AJENT" text
+- All mentions of "Dr. Jen Ashton" and "Wellness Experiment" link to https://www.joinajenda.com/
 
 ### Color Palette
 ```css
@@ -87,18 +157,12 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 - **Playfair Display** (italic) - Elegant serif for titles, section headers
 - Utility classes: `.heading-serif`, `.label-uppercase`, `.section-header-bar`
 
-### Key Design Elements
-1. **Circular Ajenda Logo** - Red border circle with "AJENDA" text
-2. **Black Bar Section Headers** - Charcoal background, white uppercase text
-3. **Circular Callout Stats** - Blue-bordered circles for nutrition facts
-4. **Two-Column Recipe Layout** - Ingredients (with checkboxes) | Instructions
-
 ---
 
 ## What's Been Built
 
 ### Pages
-1. **Home** (`/`) - Hero with logo, circular stats, feature cards
+1. **Home** (`/`) - Hero with logo, circular stats (891 Meals, 42 PDFs, 10 Months, 4 Meal Types)
 2. **Browse** (`/browse`) - Grid of all meals with filters sidebar
 3. **Search** (`/search`) - Ingredient-based search
 4. **PDFs** (`/pdfs`) - PDF browser grouped by phase
@@ -106,78 +170,68 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 6. **About** (`/about`) - Disclaimer (fan-made, not affiliated)
 
 ### Components
-- `header.tsx` - Circular logo, "THE WELLNESS EXPERIMENT" subhead, nav
-- `footer.tsx` - Disclaimer, navigation, "Made by Screendoor Studio Inc.", year
+- `header.tsx` - Ajenda Ajent logo image, "THE WELLNESS EXPERIMENT" link, nav
+- `footer.tsx` - White logo, disclaimers (fan-made + nutritional/medical), navigation, credits
 - `meal-card.tsx` - Card with meal type badge, nutrition badges
 - `meal-grid.tsx` - Responsive grid with loading skeletons
 - `meal-filters.tsx` - Black bar header, filter inputs, quick filter buttons
 
-### Utilities
-- `src/lib/utils/format-recipe.ts` - Parses recipe text into ingredients/instructions
-  - Handles fractions, measurements, ALL CAPS instruction verbs
-  - Filters out garbage text (YES NO patterns from PDF extraction)
+### Footer Disclaimers
+The footer contains two disclaimer sections:
+1. **Fan disclaimer:** "This website was created as a helpful tool by a fan of Dr. Jen Ashton's Ajenda Wellness Experiment..."
+2. **Medical disclaimer:** "Nutritional counts are approximate. This plan is informational only and not medical advice..."
 
-### Scripts (in `/scripts/`)
+---
+
+## Scripts (in `/scripts/`)
+
+### Data Import
 - `import-excel.ts` - Imports meals from Excel to Supabase
 - `upload-pdfs.ts` - Uploads PDFs to Supabase Storage
-- `extract-recipes.ts` - Extracts recipe text from PDFs
+- `upload-bonus-pdfs.ts` - Uploads bonus week PDFs specifically
+
+### Recipe Extraction
+- `extract-recipes.ts` - Standard recipe extraction from PDFs
 - `extract-mixmatch-recipes.ts` - Column-based extraction for Mix & Match PDFs
-- `check-recipes.ts` - Utility to verify recipe extraction
+- `extract-bonus-recipes.ts` - Extracts recipes from bonus week PDFs
+- `extract-bonus-recipes-v2.ts` - Quadrant-based extraction for 2x2 grid layouts
+- `extract-bonus-recipes-v3.ts` - Debug version with coordinate logging
+
+### Utilities
+- `check-recipes.ts` - Verify recipe extraction stats
+- `check-pdf-mapping.ts` - Check PDF to meal mappings
+- `fix-bonus-pdfs.ts` - Fix bonus PDF database records
+- `cleanup-disclaimer.ts` - Remove disclaimer text from recipe entries
 
 ---
 
-## Current State
+## Session Log: December 23, 2024 (Continued)
 
-### Completed ✅
-- [x] Next.js project setup with TypeScript + Tailwind
-- [x] Supabase project created and configured
-- [x] Database schema with migrations
-- [x] 891 meals imported from Excel
-- [x] 42 PDFs uploaded to Supabase Storage
-- [x] All UI pages built (Home, Browse, Search, PDFs, Meal Detail, About)
-- [x] Filtering by phase, meal time, meal type, plan type, nutrition
-- [x] Recipe text extracted from PDFs (712 meals, 80%)
-- [x] Recipe formatting utility (ingredients vs instructions parsing)
-- [x] Mix & Match column-based recipe extraction (136 additional recipes)
-- [x] UI Redesign: Scandinavian kitchen + PDF aesthetic
-- [x] Circular Ajenda logo matching PDF branding
-- [x] Footer with disclaimer and credits
-- [x] GitHub repo created and code pushed
-- [x] Deployed to Vercel
+### Branding Updates
+1. Updated site name from "Meal Navigator" to "Ajenda Ajent"
+2. Added new logo image (`/public/ajenda-ajent-logo.png`) replacing CSS-based logo
+3. Added white logo variant (`/public/ajenda-ajent-logo-white.png`) for footer
+4. Updated metadata title in layout.tsx
 
-### Known Issues / Incomplete
-- ~23 meals from Month 10 Mix & Match have different PDF layouts (extraction incomplete)
-- Ingredient extraction for advanced search not yet implemented
-- No user accounts/favorites (MVP is public-only)
+### Hyperlinks Added
+- "The Wellness Experiment" text now links to https://www.joinajenda.com/
+- "Dr. Jen Ashton" mentions now link to https://www.joinajenda.com/
+- Links appear in: header, home page hero, footer, about page
 
----
+### Recipe Cleanup
+- Removed medical disclaimer text from 14 recipe entries in database
+- Added the disclaimer to the footer instead (appears on all pages)
+- Created `cleanup-disclaimer.ts` script for this purpose
 
-## Session Log: December 23, 2024
+### Stats Correction
+- Fixed home page stat from "600+ Recipes" to "891 Meals"
+- Now matches the browse page count
 
-### Recipe Formatting Fixes
-1. Created `format-recipe.ts` to parse recipe text into ingredients/instructions
-2. Fixed fraction parsing (e.g., "1/3 cup" was being split incorrectly)
-3. Cleared "YES NO YES NO" garbage text from 101 meals (caused by PDF checkbox grids)
-4. Added `isGarbageText()` safeguard to reject bad patterns
-
-### Mix & Match Recipe Extraction
-- Created `extract-mixmatch-recipes.ts` for column-based PDF extraction
-- Month 8-10 PDFs have 4-column layout (A, B, C, D meals)
-- Used X-position ranges to isolate columns: A(40-155), B(156-280), C(281-420), D(421-570)
-- Successfully extracted 136 of 159 Mix & Match recipes
-
-### UI Redesign
-- Added Playfair Display serif font for elegant titles
-- Implemented Scandinavian warm neutral color palette
-- Created PDF-style black bar section headers
-- Added circular callout stats for nutrition facts
-- Implemented two-column recipe layout with checkbox ingredients
-- Created circular Ajenda logo (matching PDF branding)
-- Added "THE WELLNESS EXPERIMENT" subhead
-
-### About Page & Footer
-- Created About page with fan disclaimer
-- Added footer with: disclaimer, navigation, Screendoor Studio credit, current year
+### Bonus PDF Work
+- Uploaded bonus week PDFs to Supabase Storage
+- Created database records for bonus weeks 1 and 4
+- Extracted recipes from bonus PDFs (39 of 56 meals)
+- Created quadrant-based extraction for 2x2 grid PDF layouts
 
 ---
 
@@ -198,31 +252,15 @@ npm run dev
 npm run build
 ```
 
-### Running Scripts
-
-```bash
-# Import Excel data (already done)
-npx tsx scripts/import-excel.ts
-
-# Upload PDFs (already done)
-npx tsx scripts/upload-pdfs.ts
-
-# Extract recipes from PDFs (already done)
-npx tsx scripts/extract-recipes.ts
-
-# Extract Mix & Match recipes (column-based)
-npx tsx scripts/extract-mixmatch-recipes.ts
-
-# Check recipe stats
-npx tsx scripts/check-recipes.ts
-```
-
 ---
 
 ## File Structure
 
 ```
 ajenda-meal-navigator/
+├── public/
+│   ├── ajenda-ajent-logo.png       # Main logo
+│   └── ajenda-ajent-logo-white.png # White logo for footer
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx              # Home
@@ -249,16 +287,6 @@ ajenda-meal-navigator/
 
 ---
 
-## Future Enhancements (Not Started)
-1. Weekly calendar view
-2. Shopping list generator
-3. User accounts with saved favorites
-4. AI-powered ingredient extraction for better search
-5. Print-friendly recipe cards
-6. Fix remaining 23 Month 10 Mix & Match recipes
-
----
-
 ## Quick Commands
 
 ```bash
@@ -270,7 +298,26 @@ npx vercel list --scope screenteam
 
 # Database queries via Supabase Dashboard
 # https://supabase.com/dashboard/project/umghgoiipdedbeulyvsf
+
+# Get current meal counts
+npx tsx -e "
+import { createClient } from '@supabase/supabase-js';
+const supabase = createClient('https://umghgoiipdedbeulyvsf.supabase.co', 'SERVICE_ROLE_KEY');
+const { count: total } = await supabase.from('meals').select('*', { count: 'exact', head: true });
+const { count: withRecipes } = await supabase.from('meals').select('*', { count: 'exact', head: true }).not('recipe_text', 'is', null);
+console.log('Total:', total, 'With recipes:', withRecipes);
+"
 ```
+
+---
+
+## Future Enhancements (Not Started)
+1. Weekly calendar view
+2. Shopping list generator
+3. User accounts with saved favorites
+4. AI-powered ingredient extraction for better search
+5. Print-friendly recipe cards
+6. Fix remaining ~23 Month 10 Mix & Match recipes with different layouts
 
 ---
 
