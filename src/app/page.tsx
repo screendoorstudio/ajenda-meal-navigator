@@ -48,8 +48,8 @@ export default function Home() {
       {/* Circular Stats - PDF Style */}
       <section className="flex flex-wrap justify-center gap-6 sm:gap-10">
         <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-calories">
-          <span className="text-2xl sm:text-3xl font-bold value">600+</span>
-          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Recipes</span>
+          <span className="text-2xl sm:text-3xl font-bold value">891</span>
+          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Meals</span>
         </div>
         <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-protein">
           <span className="text-2xl sm:text-3xl font-bold value">42</span>
