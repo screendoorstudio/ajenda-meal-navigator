@@ -1,10 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* === PRIMARY BRAND === */
   --ajenda-red: #E31837;
   --ajenda-red-dark: #C01530;
+  --ajenda-red-light: #FEE2E2;
+
+  /* === SECONDARY - PDF BLUE === */
+  --ajenda-blue: #1E3A5F;
+  --ajenda-blue-light: #3B82A0;
+  --ajenda-blue-tint: #E0EDF4;
+
+  /* === SCANDINAVIAN NEUTRALS === */
+  --scandi-cream: #FAF8F5;
+  --scandi-linen: #F5F0E8;
+  --scandi-oak: #D4C4A8;
+  --scandi-birch: #E8DFD0;
+  --scandi-warm-gray: #7A7066;
+  --scandi-charcoal: #3D3A36;
+
+  /* === FUNCTIONAL === */
+  --background: var(--scandi-cream);
+  --foreground: var(--scandi-charcoal);
+  --text-muted: var(--scandi-warm-gray);
+  --border-subtle: rgba(212, 196, 168, 0.4);
+  --border-strong: rgba(212, 196, 168, 0.8);
+
+  /* === LEGACY (for compatibility) === */
   --ajenda-gray: #6B7280;
   --ajenda-light-gray: #F3F4F6;
 }
@@ -14,44 +36,110 @@
   --color-foreground: var(--foreground);
   --color-ajenda-red: var(--ajenda-red);
   --color-ajenda-red-dark: var(--ajenda-red-dark);
-  --color-ajenda-gray: var(--ajenda-gray);
-  --color-ajenda-light-gray: var(--ajenda-light-gray);
+  --color-ajenda-blue: var(--ajenda-blue);
+  --color-scandi-cream: var(--scandi-cream);
+  --color-scandi-linen: var(--scandi-linen);
+  --color-scandi-oak: var(--scandi-oak);
+  --color-scandi-charcoal: var(--scandi-charcoal);
+  --color-text-muted: var(--text-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
 }
 
+/* === BODY STYLING === */
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, var(--scandi-cream) 0%, var(--scandi-linen) 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
-/* Custom utility classes */
+/* === TYPOGRAPHY UTILITIES === */
+
+/* Serif headers (PDF-style elegant titles) */
+.heading-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--scandi-charcoal);
+}
+
+/* Black bar section headers (PDF style) */
+.section-header-bar {
+  background-color: var(--scandi-charcoal);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Subtle uppercase labels */
+.label-uppercase {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* === BUTTON STYLES === */
 .btn-primary {
   background-color: var(--ajenda-red);
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
   font-weight: 500;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
   background-color: var(--ajenda-red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(227, 24, 55, 0.3);
 }
 
+.btn-secondary {
+  background-color: white;
+  color: var(--scandi-charcoal);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--scandi-linen);
+  border-color: var(--scandi-oak);
+}
+
+/* === CARD STYLES === */
 .card {
   background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-  border: 1px solid #E5E7EB;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s;
 }
 
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: var(--border-strong);
+}
+
+/* === BADGE STYLES === */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.25rem;
   font-size: 0.75rem;
   font-weight: 500;
 }
@@ -62,11 +150,113 @@ body {
 }
 
 .badge-protein {
-  background-color: #DBEAFE;
-  color: #1E40AF;
+  background-color: var(--ajenda-blue-tint);
+  color: var(--ajenda-blue);
 }
 
 .badge-fiber {
   background-color: #D1FAE5;
   color: #065F46;
+}
+
+/* === CIRCULAR CALLOUT (PDF Style) === */
+.callout-circle {
+  border: 2px solid var(--ajenda-blue);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: all 0.2s;
+}
+
+.callout-circle:hover {
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
+}
+
+/* === DIVIDERS === */
+.divider-vertical {
+  width: 1px;
+  background: var(--border-strong);
+  align-self: stretch;
+}
+
+.divider-horizontal {
+  height: 1px;
+  background: var(--border-strong);
+  width: 100%;
+}
+
+/* === FORM INPUTS === */
+.input-field {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  background: white;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: all 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--ajenda-red);
+  box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+/* === CHECKBOX INGREDIENT STYLE === */
+.checkbox-ingredient {
+  width: 1rem;
+  height: 1rem;
+  border: 1.5px solid var(--scandi-oak);
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.checkbox-ingredient:hover {
+  border-color: var(--ajenda-red);
+}
+
+/* === LINK STYLES === */
+.link-primary {
+  color: var(--ajenda-red);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.link-primary:hover {
+  color: var(--ajenda-red-dark);
+  text-decoration: underline;
+}
+
+/* === NUTRITION CALLOUT COLORS === */
+.nutrition-calories {
+  border-color: #F59E0B;
+}
+
+.nutrition-calories .value {
+  color: #D97706;
+}
+
+.nutrition-protein {
+  border-color: var(--ajenda-blue);
+}
+
+.nutrition-protein .value {
+  color: var(--ajenda-blue);
+}
+
+.nutrition-fiber {
+  border-color: #10B981;
+}
+
+.nutrition-fiber .value {
+  color: #059669;
 }

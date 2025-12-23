@@ -2,100 +2,113 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       {/* Hero Section */}
-      <section className="text-center py-12">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-          <span style={{ color: 'var(--ajenda-red)' }}>AJENDA</span>{" "}
-          <span className="text-gray-900">Meal Navigator</span>
+      <section className="text-center py-12 px-4">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">
+          <span style={{ color: 'var(--ajenda-red)' }}>AJENDA</span>
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        <p className="heading-serif text-2xl sm:text-3xl text-[var(--text-muted)] mb-6">
+          Meal Navigator
+        </p>
+        <p className="text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-10">
           Search and browse Dr. Jen Ashton&apos;s 8-Week Wellness Experiment meal plans
           by ingredients, nutritional values, and more.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/search"
-            className="btn-primary text-lg px-6 py-3"
+            className="btn-primary text-base px-8 py-3"
           >
             Search by Ingredients
           </Link>
           <Link
             href="/browse"
-            className="bg-gray-100 text-gray-900 px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition-colors text-lg"
+            className="btn-secondary text-base px-8 py-3"
           >
             Browse All Meals
           </Link>
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="card p-6 text-center">
-          <div className="text-3xl font-bold" style={{ color: 'var(--ajenda-red)' }}>600+</div>
-          <div className="text-gray-600">Recipes</div>
+      {/* Circular Stats - PDF Style */}
+      <section className="flex flex-wrap justify-center gap-6 sm:gap-10">
+        <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-calories">
+          <span className="text-2xl sm:text-3xl font-bold value">600+</span>
+          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Recipes</span>
         </div>
-        <div className="card p-6 text-center">
-          <div className="text-3xl font-bold" style={{ color: 'var(--ajenda-red)' }}>42</div>
-          <div className="text-gray-600">Weekly PDFs</div>
+        <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-protein">
+          <span className="text-2xl sm:text-3xl font-bold value">42</span>
+          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">PDFs</span>
         </div>
-        <div className="card p-6 text-center">
-          <div className="text-3xl font-bold" style={{ color: 'var(--ajenda-red)' }}>10</div>
-          <div className="text-gray-600">Months</div>
+        <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-fiber">
+          <span className="text-2xl sm:text-3xl font-bold value">10</span>
+          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Months</span>
         </div>
-        <div className="card p-6 text-center">
-          <div className="text-3xl font-bold" style={{ color: 'var(--ajenda-red)' }}>4</div>
-          <div className="text-gray-600">Meal Types</div>
+        <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28" style={{ borderColor: 'var(--ajenda-red)' }}>
+          <span className="text-2xl sm:text-3xl font-bold text-[var(--ajenda-red)]">4</span>
+          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Meal Types</span>
         </div>
       </section>
 
       {/* Feature Cards */}
-      <section className="grid md:grid-cols-3 gap-6">
-        <Link href="/search" className="card p-6 hover:shadow-md transition-shadow group">
-          <div className="text-2xl mb-3">🔍</div>
-          <h3 className="text-lg font-semibold mb-2 group-hover:text-[var(--ajenda-red)]">
-            Ingredient Search
-          </h3>
-          <p className="text-gray-600">
-            Type in ingredients you have on hand and find matching recipes instantly.
-          </p>
-        </Link>
+      <section>
+        <h2 className="heading-serif text-2xl text-center mb-8">Explore the Collection</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <Link href="/search" className="card overflow-hidden group">
+            <div className="section-header-bar">Search</div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold mb-2 text-[var(--scandi-charcoal)] group-hover:text-[var(--ajenda-red)] transition-colors">
+                Ingredient Search
+              </h3>
+              <p className="text-[var(--text-muted)]">
+                Type in ingredients you have on hand and find matching recipes instantly.
+              </p>
+            </div>
+          </Link>
 
-        <Link href="/browse" className="card p-6 hover:shadow-md transition-shadow group">
-          <div className="text-2xl mb-3">📋</div>
-          <h3 className="text-lg font-semibold mb-2 group-hover:text-[var(--ajenda-red)]">
-            Browse & Filter
-          </h3>
-          <p className="text-gray-600">
-            Filter by meal type, phase, calories, protein, fiber, and plan type.
-          </p>
-        </Link>
+          <Link href="/browse" className="card overflow-hidden group">
+            <div className="section-header-bar">Browse</div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold mb-2 text-[var(--scandi-charcoal)] group-hover:text-[var(--ajenda-red)] transition-colors">
+                Browse & Filter
+              </h3>
+              <p className="text-[var(--text-muted)]">
+                Filter by meal type, phase, calories, protein, fiber, and plan type.
+              </p>
+            </div>
+          </Link>
 
-        <Link href="/pdfs" className="card p-6 hover:shadow-md transition-shadow group">
-          <div className="text-2xl mb-3">📄</div>
-          <h3 className="text-lg font-semibold mb-2 group-hover:text-[var(--ajenda-red)]">
-            Download PDFs
-          </h3>
-          <p className="text-gray-600">
-            Access and download any of the 42 weekly nutrition guides.
-          </p>
-        </Link>
+          <Link href="/pdfs" className="card overflow-hidden group">
+            <div className="section-header-bar">Download</div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold mb-2 text-[var(--scandi-charcoal)] group-hover:text-[var(--ajenda-red)] transition-colors">
+                Weekly PDFs
+              </h3>
+              <p className="text-[var(--text-muted)]">
+                Access and download any of the 42 weekly nutrition guides.
+              </p>
+            </div>
+          </Link>
+        </div>
       </section>
 
       {/* Plan Types Section */}
-      <section className="card p-6">
-        <h2 className="text-xl font-semibold mb-4">Special Plan Types</h2>
-        <div className="flex flex-wrap gap-3">
-          <span className="badge bg-purple-100 text-purple-800">Autophagy</span>
-          <span className="badge bg-blue-100 text-blue-800">Liquid-Only</span>
-          <span className="badge bg-green-100 text-green-800">Weight Adjustable</span>
-          <span className="badge bg-orange-100 text-orange-800">High Protein</span>
-          <span className="badge bg-yellow-100 text-yellow-800">Low Calorie</span>
+      <section className="card overflow-hidden">
+        <div className="section-header-bar">Special Plan Types</div>
+        <div className="p-6">
+          <div className="flex flex-wrap gap-3 mb-4">
+            <span className="badge bg-purple-100 text-purple-800">Autophagy</span>
+            <span className="badge bg-[var(--ajenda-blue-tint)] text-[var(--ajenda-blue)]">Liquid-Only</span>
+            <span className="badge bg-green-100 text-green-800">Weight Adjustable</span>
+            <span className="badge bg-orange-100 text-orange-800">High Protein</span>
+            <span className="badge bg-amber-100 text-amber-800">Low Calorie</span>
+          </div>
+          <p className="text-[var(--text-muted)]">
+            The Ajenda program includes specialized meal plans for different wellness goals.
+            Use filters to find meals that match your current phase and dietary needs.
+          </p>
         </div>
-        <p className="text-gray-600 mt-4">
-          The Ajenda program includes specialized meal plans for different wellness goals.
-          Use filters to find meals that match your current phase and dietary needs.
-        </p>
       </section>
     </div>
   );

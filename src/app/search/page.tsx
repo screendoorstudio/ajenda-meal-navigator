@@ -88,31 +88,32 @@ export default function SearchPage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+      <div className="mb-8">
+        <h1 className="heading-serif text-3xl sm:text-4xl mb-3 not-italic font-semibold text-[var(--scandi-charcoal)]">
           Search by Ingredients
         </h1>
-        <p className="text-gray-600">
+        <p className="text-[var(--text-muted)]">
           Type ingredients you have on hand to find matching recipes.
         </p>
       </div>
 
       {/* Search Form */}
-      <div className="card p-6 mb-6">
-        <div className="space-y-4">
+      <div className="card overflow-hidden mb-8">
+        <div className="section-header-bar">Ingredient Search</div>
+        <div className="p-6 space-y-5">
           {/* Ingredient Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="label-uppercase block mb-2">
               What ingredients do you have?
             </label>
             <textarea
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
               placeholder="Enter ingredients separated by commas or new lines...&#10;&#10;Examples: chicken, avocado, quinoa"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--ajenda-red)] focus:border-transparent min-h-[100px]"
+              className="input-field min-h-[100px] resize-y"
             />
             {parsedIngredients.length > 0 && (
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-[var(--text-muted)] mt-2">
                 Searching for: {parsedIngredients.join(', ')}
               </p>
             )}
@@ -120,7 +121,7 @@ export default function SearchPage() {
 
           {/* Meal Time Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="label-uppercase block mb-3">
               Meal Times (optional)
             </label>
             <div className="flex flex-wrap gap-2">
@@ -128,10 +129,10 @@ export default function SearchPage() {
                 <button
                   key={type}
                   onClick={() => toggleMealType(type)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
                     selectedMealTypes.has(type)
                       ? 'bg-[var(--ajenda-red)] text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-[var(--scandi-linen)] text-[var(--scandi-charcoal)] hover:bg-[var(--scandi-birch)]'
                   }`}
                 >
                   {type}
@@ -147,18 +148,22 @@ export default function SearchPage() {
         <MealGrid meals={[]} loading={true} />
       ) : parsedIngredients.length === 0 ? (
         <div className="text-center py-12 card">
-          <div className="text-4xl mb-4">🔍</div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <div className="callout-circle w-20 h-20 mx-auto mb-4 nutrition-protein">
+            <svg className="w-8 h-8 value" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <h3 className="text-lg font-semibold text-[var(--scandi-charcoal)] mb-2">
             Start Searching
           </h3>
-          <p className="text-gray-600">
+          <p className="text-[var(--text-muted)]">
             Enter some ingredients above to find matching recipes.
           </p>
         </div>
       ) : (
         <>
           <div className="mb-4">
-            <p className="text-gray-600">
+            <p className="text-[var(--text-muted)]">
               Found <span className="font-semibold text-[var(--ajenda-red)]">{searchResults.length}</span> meals
               matching your ingredients.
             </p>

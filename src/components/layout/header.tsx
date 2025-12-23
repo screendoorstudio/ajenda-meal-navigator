@@ -14,34 +14,37 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-[var(--scandi-linen)] border-b border-[var(--border-strong)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3 group">
             <span
-              className="text-2xl font-bold tracking-tight"
+              className="text-2xl font-bold tracking-tight transition-colors group-hover:opacity-90"
               style={{ color: 'var(--ajenda-red)' }}
             >
               AJENDA
             </span>
-            <span className="text-sm text-gray-500 hidden sm:block">
-              Meal Navigator
+            <span className="hidden sm:block">
+              <span className="text-[var(--scandi-oak)]">|</span>
+              <span className="heading-serif text-base ml-3 text-[var(--text-muted)]">
+                Meal Navigator
+              </span>
             </span>
           </Link>
 
           {/* Navigation */}
-          <nav className="flex gap-1 sm:gap-2">
+          <nav className="flex gap-1">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 text-sm font-medium transition-all border-b-2 ${
                     isActive
-                      ? "bg-gray-100 text-gray-900"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      ? "border-[var(--ajenda-red)] text-[var(--scandi-charcoal)]"
+                      : "border-transparent text-[var(--text-muted)] hover:text-[var(--scandi-charcoal)] hover:border-[var(--scandi-oak)]"
                   }`}
                 >
                   {item.name}

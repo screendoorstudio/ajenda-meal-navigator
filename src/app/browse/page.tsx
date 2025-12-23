@@ -110,12 +110,14 @@ export default function BrowsePage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Browse Meals</h1>
-        <p className="text-gray-600">
+      <div className="mb-8">
+        <h1 className="heading-serif text-3xl sm:text-4xl mb-3 not-italic font-semibold text-[var(--scandi-charcoal)]">
+          Browse Meals
+        </h1>
+        <p className="text-[var(--text-muted)]">
           Explore all {meals.length} meals from the Ajenda program.
           {filteredMeals.length !== meals.length && (
-            <span className="ml-1 text-[var(--ajenda-red)]">
+            <span className="ml-1 text-[var(--ajenda-red)] font-medium">
               Showing {filteredMeals.length} results.
             </span>
           )}

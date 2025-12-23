@@ -14,11 +14,11 @@ export default function MealCard({ meal }: MealCardProps) {
   return (
     <Link
       href={`/meals/${meal.id}`}
-      className="card p-4 hover:shadow-md transition-shadow block"
+      className="card p-5 block group"
     >
-      {/* Meal Type Badge */}
-      <div className="flex justify-between items-start mb-2">
-        <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+      {/* Top Row - Meal Type & Plan Badge */}
+      <div className="flex justify-between items-start mb-3">
+        <span className="label-uppercase">
           {meal.meal_type}
         </span>
         {meal.plan_type && (
@@ -29,17 +29,17 @@ export default function MealCard({ meal }: MealCardProps) {
       </div>
 
       {/* Meal Name */}
-      <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
+      <h3 className="text-lg font-semibold text-[var(--scandi-charcoal)] mb-2 line-clamp-2 group-hover:text-[var(--ajenda-red)] transition-colors">
         {meal.name}
       </h3>
 
       {/* Phase & Week */}
-      <p className="text-sm text-gray-500 mb-3">
-        {phase?.name || meal.phase_id} • Week {meal.week} • Day {meal.day}
+      <p className="text-sm text-[var(--text-muted)] mb-4">
+        {phase?.name || meal.phase_id} · Week {meal.week} · Day {meal.day}
       </p>
 
-      {/* Nutritional Info */}
-      <div className="flex flex-wrap gap-2">
+      {/* Nutritional Info - with subtle top border */}
+      <div className="flex flex-wrap gap-2 pt-3 border-t border-[var(--border-subtle)]">
         {meal.calories && (
           <span className="badge badge-calories">
             {meal.calories} cal
@@ -65,11 +65,11 @@ function getPlanTypeBadgeClass(planType: string): string {
     case 'Autophagy':
       return 'bg-purple-100 text-purple-800';
     case 'Liquid-Only':
-      return 'bg-blue-100 text-blue-800';
+      return 'bg-[var(--ajenda-blue-tint)] text-[var(--ajenda-blue)]';
     case 'Wt. Adj. Avail.':
       return 'bg-green-100 text-green-800';
     default:
-      return 'bg-gray-100 text-gray-800';
+      return 'bg-[var(--scandi-linen)] text-[var(--text-muted)]';
   }
 }
 
