@@ -44,8 +44,8 @@ export default function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mb-8 text-sm text-white/60 max-w-3xl">
-          <p className="mb-2">
+        <div className="mb-8 text-sm text-white/60 max-w-3xl space-y-4">
+          <p>
             This website was created as a helpful tool by a fan of <a href="https://www.joinajenda.com/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white underline">Dr. Jen Ashton&apos;s
             Ajenda Wellness Experiment</a>. This site is in no way affiliated with Dr. Jen
             Ashton or Ajenda.
@@ -53,6 +53,13 @@ export default function Footer() {
           <p>
             For recipes and health guidance, please defer to Dr. Ashton&apos;s official
             documentation always.
+          </p>
+          <p className="text-white/50 text-xs">
+            Nutritional counts are approximate. This plan is informational only and not medical advice.
+            Consult a healthcare professional before changing your diet—especially if you&apos;re pregnant,
+            under 18, on GLP-1, or taking blood thinners, or if you have other health concerns.
+            If you take blood thinners, please discuss your intake of vitamin K–rich foods
+            (such as leafy greens) with your doctor.
           </p>
         </div>
 
