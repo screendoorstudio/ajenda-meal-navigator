@@ -172,6 +172,17 @@ ajenda-meal-navigator/
 
 ---
 
+## Next Session: UI/UX Redesign 🎨
+**Priority task when resuming:**
+- Redesign the UI pulling from the look and feel of the Ajenda PDFs
+- Add modern kitchen minimalist flair
+- Reference PDFs at: `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/pdfs/`
+- Key PDF design elements to incorporate:
+  - Typography and layout from the nutrition guides
+  - Color scheme (Ajenda red #E31837 + clean whites/grays)
+  - Recipe card styling
+  - Professional, health-focused aesthetic
+
 ## Future Enhancements (Not Started)
 1. Weekly calendar view
 2. Shopping list generator
