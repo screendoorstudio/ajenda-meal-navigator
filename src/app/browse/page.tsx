@@ -59,13 +59,8 @@ export default function BrowsePage() {
       }
 
       // Plan type filter
-      if (filters.planType !== 'all') {
-        if (filters.planType === '' && meal.plan_type !== null) {
-          return false;
-        }
-        if (filters.planType !== '' && meal.plan_type !== filters.planType) {
-          return false;
-        }
+      if (filters.planType !== 'all' && meal.plan_type !== filters.planType) {
+        return false;
       }
 
       // Calorie filters

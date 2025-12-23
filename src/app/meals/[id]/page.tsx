@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { PHASES } from "@/lib/constants";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Meal } from "@/types/database";
 
 interface MealPageProps {
   params: Promise<{ id: string }>;
@@ -12,23 +13,27 @@ export default async function MealPage({ params }: MealPageProps) {
   const supabase = await createClient();
 
   // Fetch meal
-  const { data: meal, error } = await supabase
+  const { data, error } = await supabase
     .from('meals')
     .select('*')
     .eq('id', id)
     .single();
 
-  if (error || !meal) {
+  if (error || !data) {
     notFound();
   }
 
+  const meal = data as Meal;
+
   // Fetch PDF for this meal
-  const { data: pdf } = await supabase
+  const { data: pdfData } = await supabase
     .from('weekly_pdfs')
     .select('pdf_url')
     .eq('phase_id', meal.phase_id)
     .eq('week_number', meal.week)
     .single();
+
+  const pdf = pdfData as { pdf_url: string | null } | null;
 
   const phase = PHASES.find(p => p.id === meal.phase_id);
 
