@@ -16,21 +16,25 @@ export default function Header() {
   return (
     <header className="bg-[var(--scandi-linen)] border-b border-[var(--border-strong)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span
-              className="text-2xl font-bold tracking-tight transition-colors group-hover:opacity-90"
-              style={{ color: 'var(--ajenda-red)' }}
-            >
-              AJENDA
-            </span>
-            <span className="hidden sm:block">
-              <span className="text-[var(--scandi-oak)]">|</span>
-              <span className="heading-serif text-base ml-3 text-[var(--text-muted)]">
+          <Link href="/" className="flex items-center gap-4 group">
+            {/* Circular Ajenda Logo */}
+            <div className="ajenda-logo w-12 h-12 sm:w-14 sm:h-14 rounded-full border-[2.5px] border-[var(--ajenda-red)] flex items-center justify-center bg-white group-hover:bg-[var(--ajenda-red-light)] transition-colors">
+              <span className="font-serif text-[10px] sm:text-xs font-bold tracking-wide text-[var(--ajenda-red)]">
+                AJENDA
+              </span>
+            </div>
+
+            {/* Title & Subhead */}
+            <div className="hidden sm:flex flex-col">
+              <span className="text-[10px] font-medium tracking-widest text-[var(--ajenda-red)] uppercase">
+                The Wellness Experiment
+              </span>
+              <span className="heading-serif text-xl text-[var(--scandi-charcoal)]">
                 Meal Navigator
               </span>
-            </span>
+            </div>
           </Link>
 
           {/* Navigation */}

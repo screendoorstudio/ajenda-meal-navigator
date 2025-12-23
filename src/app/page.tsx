@@ -5,14 +5,25 @@ export default function Home() {
     <div className="space-y-16">
       {/* Hero Section */}
       <section className="text-center py-12 px-4">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">
-          <span style={{ color: 'var(--ajenda-red)' }}>AJENDA</span>
-        </h1>
-        <p className="heading-serif text-2xl sm:text-3xl text-[var(--text-muted)] mb-6">
-          Meal Navigator
+        {/* Circular Ajenda Logo */}
+        <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full border-[3px] border-[var(--ajenda-red)] flex items-center justify-center bg-white">
+          <span className="font-serif text-sm sm:text-base font-bold tracking-wide text-[var(--ajenda-red)]">
+            AJENDA
+          </span>
+        </div>
+
+        {/* Subhead */}
+        <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-[var(--ajenda-red)] uppercase mb-4">
+          The Wellness Experiment
         </p>
+
+        {/* Main Title - Elegant Serif */}
+        <h1 className="heading-serif text-4xl sm:text-5xl md:text-6xl text-[var(--scandi-charcoal)] mb-6">
+          Meal Navigator
+        </h1>
+
         <p className="text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-10">
-          Search and browse Dr. Jen Ashton&apos;s 8-Week Wellness Experiment meal plans
+          Search and browse Dr. Jen Ashton&apos;s meal plans
           by ingredients, nutritional values, and more.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
