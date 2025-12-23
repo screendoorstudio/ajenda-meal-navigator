@@ -4,10 +4,12 @@ import { useState, useEffect, useMemo } from "react";
 import MealGrid from "@/components/meals/meal-grid";
 import MealFilters, { type FiltersState } from "@/components/filters/meal-filters";
 import { createClient } from "@/lib/supabase/client";
-import type { Meal, MealType, PhaseId, PlanType } from "@/types/database";
+import { MEAL_CATEGORIES } from "@/lib/constants";
+import type { Meal } from "@/types/database";
 
 const initialFilters: FiltersState = {
-  mealType: 'all',
+  mealTime: 'all',
+  mealCategory: 'all',
   phase: 'all',
   planType: 'all',
   minCalories: '',
@@ -15,6 +17,15 @@ const initialFilters: FiltersState = {
   minProtein: '',
   search: '',
 };
+
+// Helper function to check if a meal matches a category based on keywords
+function mealMatchesCategory(mealName: string, categoryValue: string): boolean {
+  const category = MEAL_CATEGORIES.find(c => c.value === categoryValue);
+  if (!category) return false;
+
+  const nameLower = mealName.toLowerCase();
+  return category.keywords.some(keyword => nameLower.includes(keyword.toLowerCase()));
+}
 
 export default function BrowsePage() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -37,7 +48,7 @@ export default function BrowsePage() {
       if (error) {
         console.error('Error fetching meals:', error);
       } else {
-        setMeals(data || []);
+        setMeals((data || []) as Meal[]);
       }
       setLoading(false);
     }
@@ -48,8 +59,13 @@ export default function BrowsePage() {
   // Filter meals client-side
   const filteredMeals = useMemo(() => {
     return meals.filter((meal) => {
-      // Meal type filter
-      if (filters.mealType !== 'all' && meal.meal_type !== filters.mealType) {
+      // Meal time filter (Breakfast, Lunch, Dinner, etc.)
+      if (filters.mealTime !== 'all' && meal.meal_type !== filters.mealTime) {
+        return false;
+      }
+
+      // Meal category filter (Smoothie, Salad, Chicken, etc.)
+      if (filters.mealCategory !== 'all' && !mealMatchesCategory(meal.name, filters.mealCategory)) {
         return false;
       }
 

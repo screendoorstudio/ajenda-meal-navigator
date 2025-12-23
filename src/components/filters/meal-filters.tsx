@@ -1,10 +1,11 @@
 "use client";
 
-import { MEAL_TYPES, PHASES, PLAN_TYPES } from "@/lib/constants";
+import { MEAL_TIMES, PHASES, PLAN_TYPES, MEAL_CATEGORIES } from "@/lib/constants";
 import type { MealType, PhaseId, PlanType } from "@/types/database";
 
 interface FiltersState {
-  mealType: MealType | 'all';
+  mealTime: MealType | 'all';
+  mealCategory: string | 'all';
   phase: PhaseId | 'all';
   planType: PlanType | 'all';
   minCalories: string;
@@ -25,7 +26,8 @@ export default function MealFilters({ filters, onChange, onReset }: MealFiltersP
   };
 
   const hasActiveFilters =
-    filters.mealType !== 'all' ||
+    filters.mealTime !== 'all' ||
+    filters.mealCategory !== 'all' ||
     filters.phase !== 'all' ||
     filters.planType !== 'all' ||
     filters.minCalories !== '' ||
@@ -61,20 +63,39 @@ export default function MealFilters({ filters, onChange, onReset }: MealFiltersP
         />
       </div>
 
-      {/* Meal Type */}
+      {/* Meal Time (Breakfast, Lunch, Dinner, etc.) */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Meal Time
+        </label>
+        <select
+          value={filters.mealTime}
+          onChange={(e) => handleChange('mealTime', e.target.value)}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--ajenda-red)] focus:border-transparent"
+        >
+          <option value="all">All Times</option>
+          {MEAL_TIMES.map((time) => (
+            <option key={time} value={time}>
+              {time}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Meal Type (Smoothie, Salad, Chicken, etc.) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Meal Type
         </label>
         <select
-          value={filters.mealType}
-          onChange={(e) => handleChange('mealType', e.target.value)}
+          value={filters.mealCategory}
+          onChange={(e) => handleChange('mealCategory', e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--ajenda-red)] focus:border-transparent"
         >
           <option value="all">All Types</option>
-          {MEAL_TYPES.map((type) => (
-            <option key={type} value={type}>
-              {type}
+          {MEAL_CATEGORIES.map((category) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
             </option>
           ))}
         </select>

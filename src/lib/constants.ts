@@ -11,13 +11,40 @@ export const PHASES: { id: PhaseId; name: string; displayOrder: number }[] = [
   { id: 'm10', name: 'Month 10', displayOrder: 8 },
 ];
 
-export const MEAL_TYPES: MealType[] = [
+// Meal Times (formerly Meal Types) - when the meal is eaten
+export const MEAL_TIMES: MealType[] = [
   'Breakfast',
   'Lunch',
   'Dinner',
   'Snack',
   'Dessert',
   'Party',
+];
+
+// Keep MEAL_TYPES as alias for backward compatibility
+export const MEAL_TYPES = MEAL_TIMES;
+
+// Meal Categories - type of food/dish (derived from meal names)
+export const MEAL_CATEGORIES: { value: string; label: string; keywords: string[] }[] = [
+  { value: 'smoothie', label: 'Smoothie', keywords: ['smoothie'] },
+  { value: 'salad', label: 'Salad', keywords: ['salad'] },
+  { value: 'chicken', label: 'Chicken', keywords: ['chicken'] },
+  { value: 'stir-fry', label: 'Stir-Fry', keywords: ['stir-fry', 'stir fry'] },
+  { value: 'soup', label: 'Soup', keywords: ['soup', 'stew', 'chili'] },
+  { value: 'toast', label: 'Toast', keywords: ['toast'] },
+  { value: 'bowl', label: 'Bowl', keywords: ['bowl'] },
+  { value: 'wrap', label: 'Wrap', keywords: ['wrap', 'burrito'] },
+  { value: 'veggie', label: 'Veggie', keywords: ['veggie', 'vegetable', 'vegetarian'] },
+  { value: 'oatmeal', label: 'Oatmeal/Oats', keywords: ['oatmeal', 'oats', 'overnight oats', 'porridge'] },
+  { value: 'scramble', label: 'Scramble/Eggs', keywords: ['scramble', 'omelet', 'frittata', 'eggs'] },
+  { value: 'yogurt', label: 'Yogurt', keywords: ['yogurt', 'parfait', 'skyr', 'kefir'] },
+  { value: 'curry', label: 'Curry', keywords: ['curry', 'masala'] },
+  { value: 'tacos', label: 'Tacos', keywords: ['taco', 'fajita'] },
+  { value: 'sandwich', label: 'Sandwich', keywords: ['sandwich', 'pita'] },
+  { value: 'salmon', label: 'Salmon', keywords: ['salmon'] },
+  { value: 'tofu', label: 'Tofu', keywords: ['tofu', 'tempeh'] },
+  { value: 'pasta', label: 'Pasta', keywords: ['pasta', 'noodle', 'spaghetti', 'orzo'] },
+  { value: 'pudding', label: 'Pudding', keywords: ['pudding', 'chia pudding'] },
 ];
 
 export const PLAN_TYPES: { value: PlanType; label: string }[] = [

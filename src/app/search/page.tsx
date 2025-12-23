@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import MealGrid from "@/components/meals/meal-grid";
 import { createClient } from "@/lib/supabase/client";
-import { MEAL_TYPES } from "@/lib/constants";
+import { MEAL_TIMES } from "@/lib/constants";
 import type { Meal, MealType } from "@/types/database";
 
 export default function SearchPage() {
@@ -26,7 +26,7 @@ export default function SearchPage() {
       if (error) {
         console.error('Error fetching meals:', error);
       } else {
-        setMeals(data || []);
+        setMeals((data || []) as Meal[]);
       }
       setLoading(false);
     }
@@ -118,13 +118,13 @@ export default function SearchPage() {
             )}
           </div>
 
-          {/* Meal Type Filter */}
+          {/* Meal Time Filter */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Meal Types (optional)
+              Meal Times (optional)
             </label>
             <div className="flex flex-wrap gap-2">
-              {MEAL_TYPES.map((type) => (
+              {MEAL_TIMES.map((type) => (
                 <button
                   key={type}
                   onClick={() => toggleMealType(type)}
