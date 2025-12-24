@@ -327,6 +327,26 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
+## Session Log: December 24, 2024
+
+### Search Improvements
+1. **AND logic for comma-separated terms**
+   - Changed search from OR to AND logic
+   - Searching "chicken, avocado" now returns only meals containing BOTH ingredients
+   - Modified `src/app/search/page.tsx` line 63: `.some()` → `.every()`
+
+2. **Back to Search Results navigation**
+   - When clicking a meal from search results, URL now includes `?from=search&q=...`
+   - Meal detail page shows "Back to Search Results" button when coming from search
+   - Search query is preserved so users return to their exact search results
+   - Files modified:
+     - `src/components/meals/meal-card.tsx` - Added `searchQuery` prop
+     - `src/components/meals/meal-grid.tsx` - Passes searchQuery to cards
+     - `src/app/search/page.tsx` - Reads/writes query to URL, wrapped in Suspense
+     - `src/app/meals/[id]/page.tsx` - Shows conditional back button
+
+---
+
 ## Future Enhancements (Not Started)
 1. Weekly calendar view
 2. Shopping list generator
@@ -337,4 +357,4 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
-*Last updated: December 23, 2024 (evening)*
+*Last updated: December 24, 2024*
