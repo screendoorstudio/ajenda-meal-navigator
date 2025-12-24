@@ -6,9 +6,10 @@ import MealCard from "./meal-card";
 interface MealGridProps {
   meals: Meal[];
   loading?: boolean;
+  searchQuery?: string;
 }
 
-export default function MealGrid({ meals, loading }: MealGridProps) {
+export default function MealGrid({ meals, loading, searchQuery }: MealGridProps) {
   if (loading) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -46,7 +47,7 @@ export default function MealGrid({ meals, loading }: MealGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {meals.map((meal) => (
-        <MealCard key={meal.id} meal={meal} />
+        <MealCard key={meal.id} meal={meal} searchQuery={searchQuery} />
       ))}
     </div>
   );

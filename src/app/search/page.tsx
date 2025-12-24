@@ -1,15 +1,48 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import MealGrid from "@/components/meals/meal-grid";
 import { createClient } from "@/lib/supabase/client";
 import { MEAL_TIMES } from "@/lib/constants";
 import type { Meal, MealType } from "@/types/database";
 
 export default function SearchPage() {
+  return (
+    <Suspense fallback={<SearchPageSkeleton />}>
+      <SearchPageContent />
+    </Suspense>
+  );
+}
+
+function SearchPageSkeleton() {
+  return (
+    <div>
+      <div className="mb-8">
+        <h1 className="heading-serif text-3xl sm:text-4xl mb-3 not-italic font-semibold text-[var(--scandi-charcoal)]">
+          Search by Ingredients
+        </h1>
+        <p className="text-[var(--text-muted)]">
+          Type ingredients you have on hand to find matching recipes.
+        </p>
+      </div>
+      <div className="card overflow-hidden mb-8 animate-pulse">
+        <div className="section-header-bar">Ingredient Search</div>
+        <div className="p-6">
+          <div className="h-24 bg-[var(--scandi-linen)] rounded"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SearchPageContent() {
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get('q') || '';
+
   const [meals, setMeals] = useState<Meal[]>([]);
   const [loading, setLoading] = useState(true);
-  const [ingredients, setIngredients] = useState<string>("");
+  const [ingredients, setIngredients] = useState<string>(initialQuery);
   const [selectedMealTypes, setSelectedMealTypes] = useState<Set<MealType>>(new Set());
 
   // Fetch all meals on mount
@@ -59,8 +92,8 @@ export default function SearchPage() {
         // Search in meal name and recipe text
         const searchText = `${meal.name} ${meal.recipe_text || ''}`.toLowerCase();
 
-        // Check if any ingredient matches
-        return parsedIngredients.some(ingredient =>
+        // Check if ALL ingredients match (AND logic)
+        return parsedIngredients.every(ingredient =>
           searchText.includes(ingredient)
         );
       })
@@ -168,7 +201,7 @@ export default function SearchPage() {
               matching your ingredients.
             </p>
           </div>
-          <MealGrid meals={searchResults} />
+          <MealGrid meals={searchResults} searchQuery={ingredients} />
         </>
       )}
     </div>

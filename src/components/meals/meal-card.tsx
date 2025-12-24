@@ -6,14 +6,20 @@ import { PHASES } from "@/lib/constants";
 
 interface MealCardProps {
   meal: Meal;
+  searchQuery?: string;
 }
 
-export default function MealCard({ meal }: MealCardProps) {
+export default function MealCard({ meal, searchQuery }: MealCardProps) {
   const phase = PHASES.find(p => p.id === meal.phase_id);
+
+  // Build URL with optional search return params
+  const href = searchQuery
+    ? `/meals/${meal.id}?from=search&q=${encodeURIComponent(searchQuery)}`
+    : `/meals/${meal.id}`;
 
   return (
     <Link
-      href={`/meals/${meal.id}`}
+      href={href}
       className="card p-5 block group"
     >
       {/* Top Row - Meal Type & Plan Badge */}
