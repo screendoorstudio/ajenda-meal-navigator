@@ -199,9 +199,14 @@ The footer contains two disclaimer sections:
 
 ### Utilities
 - `check-recipes.ts` - Verify recipe extraction stats
+- `check-recipe.ts` - Check a specific recipe by name
 - `check-pdf-mapping.ts` - Check PDF to meal mappings
 - `fix-bonus-pdfs.ts` - Fix bonus PDF database records
 - `cleanup-disclaimer.ts` - Remove disclaimer text from recipe entries
+- `find-merged-recipes.ts` - Find recipes with multiple meals merged together
+- `analyze-merged-recipes.ts` - Analyze which recipes contain other meal names
+- `fix-merged-recipes.ts` - Automatically split merged recipes (fixed 344 recipes)
+- `fix-recipe.ts` - Manually fix a specific recipe by ID
 
 ---
 
@@ -232,6 +237,17 @@ The footer contains two disclaimer sections:
 - Created database records for bonus weeks 1 and 4
 - Extracted recipes from bonus PDFs (39 of 56 meals)
 - Created quadrant-based extraction for 2x2 grid PDF layouts
+
+### Merged Recipe Fixes (Evening Session)
+- **Problem:** 298 recipes had multiple meals merged together from same PDF page
+  - Example: Chicken Pozole contained both its recipe AND Stuffed Poblano Peppers
+  - Ingredients were jumbled on single lines instead of separated
+- **Solution:** Created `fix-merged-recipes.ts` script to automatically split merged content
+- **Results:**
+  - Manually formatted Chicken Pozole with proper INGREDIENTS/INSTRUCTIONS sections
+  - Automatically fixed 344 additional merged recipes
+  - 11 recipes skipped (simple snacks that couldn't be cleanly extracted)
+- **Database updates are live immediately** (no deploy needed for data changes)
 
 ---
 
@@ -321,4 +337,4 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
-*Last updated: December 23, 2024*
+*Last updated: December 23, 2024 (evening)*
