@@ -10,8 +10,6 @@ const navigation = [
 ];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-[var(--scandi-charcoal)] text-white mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -65,8 +63,8 @@ export default function Footer() {
 
         {/* Bottom Section - Credits & Year */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-sm text-white/50">
-          <p>Made by Screendoor Studio Inc.</p>
-          <p>&copy; {currentYear} All rights reserved.</p>
+          <p>Made by <a href="https://screendoorstudio.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Screendoor Studio Inc.</a></p>
+          <p>&copy; 2026 All rights reserved.</p>
         </div>
       </div>
     </footer>
