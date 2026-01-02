@@ -347,6 +347,14 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
+## Session Log: January 2, 2026
+
+### Footer Updates
+1. **Copyright year** → Updated to 2026
+2. **Screendoor Studio link** → "Screendoor Studio Inc." now links to https://screendoorstudio.com
+
+---
+
 ## Future Enhancements (Not Started)
 1. Weekly calendar view
 2. Shopping list generator
@@ -357,4 +365,4 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
-*Last updated: December 24, 2024*
+*Last updated: January 2, 2026*
