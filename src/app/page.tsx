@@ -48,15 +48,15 @@ export default function Home() {
       {/* Circular Stats - PDF Style */}
       <section className="flex flex-wrap justify-center gap-6 sm:gap-10">
         <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-calories">
-          <span className="text-2xl sm:text-3xl font-bold value">891</span>
+          <span className="text-2xl sm:text-3xl font-bold value">1,023</span>
           <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Meals</span>
         </div>
         <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-protein">
-          <span className="text-2xl sm:text-3xl font-bold value">42</span>
+          <span className="text-2xl sm:text-3xl font-bold value">51</span>
           <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">PDFs</span>
         </div>
         <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28 nutrition-fiber">
-          <span className="text-2xl sm:text-3xl font-bold value">10</span>
+          <span className="text-2xl sm:text-3xl font-bold value">12</span>
           <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Months</span>
         </div>
         <div className="callout-circle w-24 h-24 sm:w-28 sm:h-28" style={{ borderColor: 'var(--ajenda-red)' }}>
@@ -100,7 +100,7 @@ export default function Home() {
                 Weekly PDFs
               </h3>
               <p className="text-[var(--text-muted)]">
-                Access and download any of the 42 weekly nutrition guides.
+                Access and download any of the 51 weekly nutrition guides.
               </p>
             </div>
           </Link>

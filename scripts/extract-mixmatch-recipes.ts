@@ -24,6 +24,8 @@ const FOLDER_MAPPING: Record<string, string> = {
   'Month 8': 'm8',
   'Month 9': 'm9',
   'Month 10': 'm10',
+  'Month 11': 'm11',
+  'Month 12': 'm12',
 };
 
 interface TextItem {
@@ -226,7 +228,7 @@ async function main() {
   const { data: meals, error } = await supabase
     .from('meals')
     .select('id, name, phase_id, week, page, day')
-    .in('phase_id', ['m8', 'm9', 'm10'])
+    .in('phase_id', ['m8', 'm9', 'm10', 'm11', 'm12'])
     .is('recipe_text', null)
     .order('phase_id')
     .order('week')

@@ -21,11 +21,11 @@ An interactive web app to help users navigate Dr. Jen Ashton's Ajenda Wellness E
 
 ---
 
-## Current Stats (as of Dec 23, 2024)
-- **Total Meals:** 891
-- **Meals with Recipes:** 789
-- **PDFs:** 42
-- **Phases:** Phase 1-3, Bonus, Month 7-10
+## Current Stats (as of March 3, 2026)
+- **Total Meals:** 1,023
+- **Meals with Recipes:** 939
+- **PDFs:** 51
+- **Phases:** Phase 1-3, Bonus, Month 7-12
 
 ---
 
@@ -56,9 +56,9 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 ## Database Schema
 
 ### Tables
-1. **phases** - 8 phases (Phase 1-3, Bonus, Month 7-10)
-2. **weekly_pdfs** - Links to PDF files in Supabase Storage (42 PDFs)
-3. **meals** - Main table with 891 meals, nutritional info, recipe text
+1. **phases** - 10 phases (Phase 1-3, Bonus, Month 7-12)
+2. **weekly_pdfs** - Links to PDF files in Supabase Storage (51 PDFs)
+3. **meals** - Main table with 1,023 meals, nutritional info, recipe text
 4. **ingredients** - Normalized ingredient list (for future use)
 5. **meal_ingredients** - Junction table (for future use)
 
@@ -73,10 +73,10 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 ---
 
 ## Data Sources
-- **Excel Index:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/Ajenda_Meal_Plan_Index (1).xlsx`
+- **Excel Index:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/Ajenda_Meal_Plan_Index_3-3-26.xlsx`
   - Contains all meals with nutritional data
 - **PDFs:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/pdfs/`
-  - Organized in folders: PHASE 1, PHASE 2, PHASE 3, Month 7, Month 8, Month 9, Month 10
+  - Organized in folders: PHASE 1, PHASE 2, PHASE 3, Month 7, Month 8, Month 9, Month 10, Month 11, Month 12
 - **Logo Files:** `/Users/jameswaitzman/Documents/_Claude Projects/Jake/Ajenda Ajent/logo/`
   - `Ajenda-AJENT_logo.png` - Main logo (red circle)
   - `Ajenda-AJENT-1_white.png` - White version for dark backgrounds
@@ -162,7 +162,7 @@ git add . && git commit -m "Add Month 11 content" && git push
 ## What's Been Built
 
 ### Pages
-1. **Home** (`/`) - Hero with logo, circular stats (891 Meals, 42 PDFs, 10 Months, 4 Meal Types)
+1. **Home** (`/`) - Hero with logo, circular stats (1,023 Meals, 51 PDFs, 12 Months, 4 Meal Types)
 2. **Browse** (`/browse`) - Grid of all meals with filters sidebar
 3. **Search** (`/search`) - Ingredient-based search
 4. **PDFs** (`/pdfs`) - PDF browser grouped by phase
@@ -355,6 +355,26 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
+## Session Log: March 3, 2026
+
+### Added Month 11, Month 12, and completed Month 10
+1. **New phases:** Added Month 11 and Month 12 to database, types, and constants
+2. **Imported 132 new meals** from updated Excel (Ajenda_Meal_Plan_Index_3-3-26.xlsx)
+   - Total meals: 891 → 1,023
+   - M10: 70 meals (was partial, now complete with weeks 3-4)
+   - M11: 63 meals (new)
+   - M12: 36 meals (new)
+3. **Uploaded 10 new PDFs** (M10 wk 3-4, M11 wk 1-4, M12 wk 1-4) — 51 total PDFs
+4. **Extracted 125 new recipes** via standard + mix & match extraction
+   - Total recipes: 789 → 939
+   - 84 meals still missing recipes (mostly Mix & Match format)
+5. **Updated homepage stats:** 1,023 Meals, 51 PDFs, 12 Months
+6. **Updated import-excel.ts** with skip-existing logic to prevent duplicate imports
+7. **Updated extract-recipes.ts** with null filter to avoid overwriting existing recipes
+8. **Fixed 1 edge case:** Pomegranate-Ginger Mocktail had decimal calories (0.5) and non-numeric week ("2 HOL")
+
+---
+
 ## Future Enhancements (Not Started)
 1. Weekly calendar view
 2. Shopping list generator
@@ -365,4 +385,4 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 
 ---
 
-*Last updated: January 2, 2026*
+*Last updated: March 3, 2026*

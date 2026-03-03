@@ -4,7 +4,7 @@ export type MealType = 'Breakfast' | 'Lunch' | 'Dinner' | 'Snack' | 'Dessert' | 
 
 export type PlanType = 'Autophagy' | 'Liquid-Only' | 'Wt. Adj. Avail.' | 'Serves 12' | 'Special Exception' | null;
 
-export type PhaseId = 'phase-1' | 'phase-2' | 'phase-3' | 'bonus' | 'm7' | 'm8' | 'm9' | 'm10';
+export type PhaseId = 'phase-1' | 'phase-2' | 'phase-3' | 'bonus' | 'm7' | 'm8' | 'm9' | 'm10' | 'm11' | 'm12';
 
 export interface Phase {
   id: PhaseId;

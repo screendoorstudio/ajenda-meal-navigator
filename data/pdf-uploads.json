@@ -1,6 +1,12 @@
 [
   {
     "phase": "m10",
+    "week": 3,
+    "path": "m10/m10-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m10/m10-week-3.pdf"
+  },
+  {
+    "phase": "m10",
     "week": 1,
     "path": "m10/m10-week-1.pdf",
     "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m10/m10-week-1.pdf"
@@ -10,6 +16,60 @@
     "week": 2,
     "path": "m10/m10-week-2.pdf",
     "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m10/m10-week-2.pdf"
+  },
+  {
+    "phase": "m10",
+    "week": 4,
+    "path": "m10/m10-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m10/m10-week-4.pdf"
+  },
+  {
+    "phase": "m11",
+    "week": 1,
+    "path": "m11/m11-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m11/m11-week-1.pdf"
+  },
+  {
+    "phase": "m11",
+    "week": 3,
+    "path": "m11/m11-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m11/m11-week-3.pdf"
+  },
+  {
+    "phase": "m11",
+    "week": 4,
+    "path": "m11/m11-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m11/m11-week-4.pdf"
+  },
+  {
+    "phase": "m11",
+    "week": 2,
+    "path": "m11/m11-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m11/m11-week-2.pdf"
+  },
+  {
+    "phase": "m12",
+    "week": 1,
+    "path": "m12/m12-week-1.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m12/m12-week-1.pdf"
+  },
+  {
+    "phase": "m12",
+    "week": 2,
+    "path": "m12/m12-week-2.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m12/m12-week-2.pdf"
+  },
+  {
+    "phase": "m12",
+    "week": 3,
+    "path": "m12/m12-week-3.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m12/m12-week-3.pdf"
+  },
+  {
+    "phase": "m12",
+    "week": 4,
+    "path": "m12/m12-week-4.pdf",
+    "url": "https://umghgoiipdedbeulyvsf.supabase.co/storage/v1/object/public/pdfs/m12/m12-week-4.pdf"
   },
   {
     "phase": "m7",

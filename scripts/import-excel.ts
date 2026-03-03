@@ -6,7 +6,7 @@
  * Requires:
  * - SUPABASE_URL environment variable
  * - SUPABASE_SERVICE_ROLE_KEY environment variable
- * - Excel file at ../Ajenda_Meal_Plan_Index (1).xlsx
+ * - Excel file at ../Ajenda_Meal_Plan_Index_3-3-26.xlsx
  */
 
 import * as XLSX from 'xlsx';
@@ -23,6 +23,8 @@ const PHASE_MAPPING: Record<string, string> = {
   'M8': 'm8',
   'M9': 'm9',
   'M10': 'm10',
+  'M11': 'm11',
+  'M12': 'm12',
 };
 
 // Meal type validation
@@ -68,7 +70,7 @@ async function main() {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   // Read Excel file
-  const excelPath = path.resolve(__dirname, '../../Ajenda_Meal_Plan_Index (1).xlsx');
+  const excelPath = path.resolve(__dirname, '../../Ajenda_Meal_Plan_Index_3-3-26.xlsx');
   console.log(`Reading Excel file: ${excelPath}`);
 
   let workbook: XLSX.WorkBook;
@@ -129,6 +131,21 @@ async function main() {
         other_meal_plans: row['Other Meal Plans']?.trim() || null,
         recipe_text: null, // Will be populated later via AI extraction
       };
+
+      // Check if meal already exists (skip to preserve existing recipe_text)
+      const { data: existing } = await supabase
+        .from('meals')
+        .select('id')
+        .eq('name', meal.name)
+        .eq('phase_id', meal.phase_id)
+        .eq('week', meal.week)
+        .eq('day', meal.day)
+        .limit(1);
+
+      if (existing && existing.length > 0) {
+        // Skip existing meal
+        continue;
+      }
 
       // Insert into database
       const { error } = await supabase.from('meals').insert(meal);

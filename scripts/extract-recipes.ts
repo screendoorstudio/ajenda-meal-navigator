@@ -17,6 +17,8 @@ const FOLDER_MAPPING: Record<string, string> = {
   'Month 8': 'm8',
   'Month 9': 'm9',
   'Month 10': 'm10',
+  'Month 11': 'm11',
+  'Month 12': 'm12',
 };
 
 // Extract week number from filename
@@ -132,6 +134,7 @@ async function main() {
   const { data: meals, error } = await supabase
     .from('meals')
     .select('id, name, phase_id, week, page')
+    .is('recipe_text', null)
     .order('phase_id')
     .order('week')
     .order('page');

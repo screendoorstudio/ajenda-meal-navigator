@@ -22,6 +22,8 @@ const FOLDER_MAPPING: Record<string, string> = {
   'Month 8': 'm8',
   'Month 9': 'm9',
   'Month 10': 'm10',
+  'Month 11': 'm11',
+  'Month 12': 'm12',
 };
 
 // Extract week number from filename

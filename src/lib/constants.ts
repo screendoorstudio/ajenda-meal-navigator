@@ -9,6 +9,8 @@ export const PHASES: { id: PhaseId; name: string; displayOrder: number }[] = [
   { id: 'm8', name: 'Month 8', displayOrder: 6 },
   { id: 'm9', name: 'Month 9', displayOrder: 7 },
   { id: 'm10', name: 'Month 10', displayOrder: 8 },
+  { id: 'm11', name: 'Month 11', displayOrder: 9 },
+  { id: 'm12', name: 'Month 12', displayOrder: 10 },
 ];
 
 // Meal Times (formerly Meal Types) - when the meal is eaten
@@ -65,6 +67,8 @@ export const PHASE_MAPPING: Record<string, PhaseId> = {
   'M8': 'm8',
   'M9': 'm9',
   'M10': 'm10',
+  'M11': 'm11',
+  'M12': 'm12',
 };
 
 // Nutritional thresholds for quick filters
