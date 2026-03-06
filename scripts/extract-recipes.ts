@@ -182,7 +182,13 @@ async function main() {
         for (const meal of weekMeals) {
           const recipeText = extractRecipeForMeal(text, meal.name, meal.page);
 
-          if (recipeText) {
+          // Skip garbage text from tracker/overview pages
+          const isGarbage = recipeText && (
+            /YES\s+NO\s+YES\s+NO/i.test(recipeText) ||
+            /TRACK YOUR THOUGHTS/i.test(recipeText)
+          );
+
+          if (recipeText && !isGarbage) {
             const { error: updateError } = await supabase
               .from('meals')
               .update({ recipe_text: recipeText })
@@ -193,6 +199,9 @@ async function main() {
             } else {
               successCount++;
             }
+          } else if (isGarbage) {
+            console.log(`  [SKIP] ${meal.name} - Garbage text (tracker/overview page)`);
+            notFoundCount++;
           } else {
             notFoundCount++;
           }

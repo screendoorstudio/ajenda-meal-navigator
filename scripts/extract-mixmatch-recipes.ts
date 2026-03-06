@@ -301,7 +301,13 @@ async function main() {
 
           const recipeText = parseRecipeFromColumn(columnText, meal.name);
 
-          if (recipeText) {
+          // Skip garbage text from tracker/overview pages
+          const isGarbage = recipeText && (
+            /YES\s+NO\s+YES\s+NO/i.test(recipeText) ||
+            /TRACK YOUR THOUGHTS/i.test(recipeText)
+          );
+
+          if (recipeText && !isGarbage) {
             const { error: updateError } = await supabase
               .from('meals')
               .update({ recipe_text: recipeText })
@@ -315,6 +321,10 @@ async function main() {
               console.log(`  [OK] ${meal.name} (Col ${columnLetter}, ${recipeText.length} chars)`);
               successCount++;
             }
+          } else if (isGarbage) {
+            console.log(`  [SKIP] ${meal.name} - Garbage text (tracker/overview page)`);
+            failCount++;
+            failures.push(`${meal.name} (garbage text)`);
           } else {
             console.log(`  [SKIP] ${meal.name} - Could not extract from column ${columnLetter}`);
             failCount++;

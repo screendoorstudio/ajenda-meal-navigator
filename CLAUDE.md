@@ -67,7 +67,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 - `phase_id`, `week`, `day`, `page`
 - `calories`, `protein_g`, `fiber_g`
 - `plan_type` (Autophagy, Liquid-Only, Wt. Adj. Avail., etc.)
-- `recipe_text` - Extracted from PDFs (789 meals have recipes)
+- `recipe_text` - Extracted from PDFs (939 meals have recipes)
 - `search_vector` - Full-text search (auto-populated via trigger)
 
 ---
@@ -372,6 +372,7 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 6. **Updated import-excel.ts** with skip-existing logic to prevent duplicate imports
 7. **Updated extract-recipes.ts** with null filter to avoid overwriting existing recipes
 8. **Fixed 1 edge case:** Pomegranate-Ginger Mocktail had decimal calories (0.5) and non-numeric week ("2 HOL")
+9. **Nutritional info check:** Confirmed all Excel data columns (Calories, Protein, Fiber, Plan Type, Phase, Week, Day, Page, Other Meal Plans) already display on meal detail pages — no changes needed
 
 ---
 
@@ -381,7 +382,7 @@ console.log('Total:', total, 'With recipes:', withRecipes);
 3. User accounts with saved favorites
 4. AI-powered ingredient extraction for better search
 5. Print-friendly recipe cards
-6. Fix remaining ~23 Month 10 Mix & Match recipes with different layouts
+6. Fix remaining ~84 meals missing recipes (mostly Mix & Match column-format PDFs in M10/M11)
 
 ---
 

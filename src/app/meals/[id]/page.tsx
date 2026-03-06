@@ -179,6 +179,14 @@ export default async function MealPage({ params, searchParams }: MealPageProps) 
 }
 
 function RecipeDisplay({ recipeText, mealName }: { recipeText: string; mealName: string }) {
+  // Detect garbage text (tracker/overview pages, not actual recipes)
+  const isGarbage = /YES\s+NO\s+YES\s+NO/i.test(recipeText)
+    || /TRACK YOUR THOUGHTS/i.test(recipeText);
+
+  if (isGarbage) {
+    return null;
+  }
+
   const formatted = formatRecipeForDisplay(recipeText, mealName);
 
   // If formatting fails or returns empty, show raw text with basic cleanup
